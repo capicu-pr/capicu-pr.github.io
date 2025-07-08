@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../styles/About.css";
+import sebastiancruz_headshot from "../assets/sebastiancruz_headshot.png";
+import luisluna_headshot from "../assets/luisluna_headshot.png";
 import {
   FaLinkedin, FaGithub, FaInstagram, FaGlobe, FaEnvelopeOpenText
 } from "react-icons/fa";
@@ -8,13 +10,13 @@ const team = [
   {
     name: "Sebastián A. Cruz Romero",
     title: "Co-founder",
-    photo: "https://romerocruzsa.github.io/assets/img/avatar.png",
+    photo: sebastiancruz_headshot,
     socials: {
       linkedin: "https://www.linkedin.com/in/romerocruzsa",
       github: "https://github.com/romerocruzsa",
       instagram: "https://instagram.com/shojiro001",
       website: "https://romerocruzsa.github.io",
-      email: "mailto:romerocruzsa@gmail.com"
+      email: "mailto:scruzromero@capicupuertorico.com"
     }
   },
   {
@@ -22,7 +24,7 @@ const team = [
     title: "Co-founder",
     photo: "https://avatars.githubusercontent.com/u/78518246?v=4",
     socials: {
-      email: "mailto:misael.mercado1@upr.edu",
+      email: "mailto:mmercado@capicupuertorico.com",
       linkedin: "https://www.linkedin.com/in/misael-j-mercado/",
       github: "https://github.com/misaelmercado1"
     }
@@ -30,9 +32,9 @@ const team = [
   {
     name: "Luis G. Luna Betancourt",
     title: "Co-founder",
-    photo: "https://media.licdn.com/dms/image/v2/D4E03AQHGSx2IXFrobw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1708748424156?e=1753920000&v=beta&t=3hHixUtmAqTqK1WyhqqQVGqWSVwamWbNsRkwWxU19ko",
+    photo: luisluna_headshot,
     socials: {
-      email: "mailto:luis.luna7@upr.edu",
+      email: "mailto:lluna@capicupuertorico.com",
       linkedin: "https://www.linkedin.com/in/luis-luna787/",
       github: "https://github.com/luisl7"
     }
@@ -42,7 +44,7 @@ const team = [
     title: "Co-founder",
     photo: "https://media.licdn.com/dms/image/v2/D5603AQFvdnBa_c3zAg/profile-displayphoto-shrink_400_400/B56ZVokqVoGoAg-/0/1741216197042?e=1753920000&v=beta&t=D4gudnnSi_EcQNqmBu0WDKp89DUw27MLBqND8DWOfLo",
     socials: {
-      email: "mailto:wgcengineering@gmail.com",
+      email: "mailto:wgarcia@capicupuertorico.com",
       linkedin: "https://www.linkedin.com/in/walbert-garcia/",
       github: "https://github.com/softwal"
     }
@@ -77,6 +79,15 @@ const partnerships = [
     socials: {
       website: "https://perspectivasglobales.com",
       email: "mailto:info@ocapr.org"
+    }
+  },
+  {
+    name: "Colmena66",
+    title: "A Program from the Puerto Rico Science, Technology, and Research Trust.",
+    photo: "https://inprende.com/wp-content/uploads/2018/10/colmena66-01.png",
+    socials: {
+      website: "https://tucaminoempresarial.com/colmena66/",
+      email: "mailto:info@colmena66.com"
     }
   },
   // {

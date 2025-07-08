@@ -26,6 +26,9 @@ export default function MobileMenu() {
         <NavLink to="/" className={({ isActive }) => "mobile-nav-link" + (isActive ? " active" : "")} onClick={toggleMenu}>
           Home
         </NavLink>
+        {/* <NavLink to="/products" className={({ isActive }) => "mobile-nav-link" + (isActive ? " active" : "")} onClick={toggleMenu}>
+          Products
+        </NavLink> */}
         <NavLink to="/about" className={({ isActive }) => "mobile-nav-link" + (isActive ? " active" : "")} onClick={toggleMenu}>
           About
         </NavLink>
