@@ -31,6 +31,20 @@ export default function Home() {
             <img src={logoSolo} alt="Capicú Logo" className="hero-logo large" loading="eager" />
           </div>
         </div>
+        <div className="hero-partners">
+          <strong>Supported by:</strong>
+          <div className="program-logos-container">
+            <a href="https://aws.amazon.com/startups/showcase/startup-details/8a827c00-6054-457a-bac5-8345c5da9ce6" target="_blank" rel="noopener noreferrer">
+              <img src="https://www.espace-inc.org/wp-content/uploads/2022/08/copie-de-aws-activate.png" alt="AWS Activate" className="program-logo" />
+            </a>
+            <a href="https://www.nvidia.com/en-us/startups/" target="_blank" rel="noopener noreferrer">
+              <img src="https://mohyilabs.com/wp-content/uploads/2016/03/nvidia-inception-logo.png" alt="NVIDIA Inception" className="program-logo" />
+            </a>
+            <a href="https://www.xras.org/public/requests/242649-ACCESS-CIS250603" target="_blank" rel="noopener noreferrer">
+              <img src="https://esm.sh/@xras/ui@onramps_v1/dist/access_logo.png" alt="NSF ACCESS" className="program-logo" />
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* Demo Section */}
