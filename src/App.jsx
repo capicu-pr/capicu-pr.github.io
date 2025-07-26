@@ -4,7 +4,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
-import Products from "./pages/Products";
 import Navbar from "./components/Navbar";
 import MobileMenu from "./components/MobileMenu";
 import Footer from "./components/Footer";
@@ -20,10 +19,10 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route href="" element={<Research/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-            {/* <Route path="/products" element={<Products />} /> */}
           </Routes>
         </main>
         <Footer />

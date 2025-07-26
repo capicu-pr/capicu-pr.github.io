@@ -26,15 +26,15 @@ export default function MobileMenu() {
         <NavLink to="/" className={({ isActive }) => "mobile-nav-link" + (isActive ? " active" : "")} onClick={toggleMenu}>
           Home
         </NavLink>
-        {/* <NavLink to="/products" className={({ isActive }) => "mobile-nav-link" + (isActive ? " active" : "")} onClick={toggleMenu}>
-          Products
-        </NavLink> */}
         <NavLink to="/about" className={({ isActive }) => "mobile-nav-link" + (isActive ? " active" : "")} onClick={toggleMenu}>
           About
         </NavLink>
         <NavLink to="/blog" className={({ isActive }) => "mobile-nav-link" + (isActive ? " active" : "")} onClick={toggleMenu}>
           Blog
         </NavLink>
+        <a href="https://research.capicupuertorico.com/" className="mobile-nav-link" onClick={toggleMenu}>
+          Research
+        </a>
         <a href="https://github.com/capicu-pr" className="mobile-nav-link" onClick={toggleMenu}>
           GitHub
         </a>
