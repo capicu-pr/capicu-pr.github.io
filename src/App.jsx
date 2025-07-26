@@ -9,6 +9,7 @@ import MobileMenu from "./components/MobileMenu";
 import Footer from "./components/Footer";
 import "./App.css";
 import Products from "./pages/Products";
+import Privacy from "./pages/Privacy";
 
 export default function App() {
   return (
@@ -20,9 +21,11 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>
         <Footer />
