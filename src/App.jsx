@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import MobileMenu from "./components/MobileMenu";
 import Footer from "./components/Footer";
 import "./App.css";
+import Products from "./pages/Products";
 
 export default function App() {
   return (
@@ -19,7 +20,6 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route href="" element={<Research/>} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />

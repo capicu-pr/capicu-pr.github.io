@@ -102,118 +102,99 @@ const Products = () => {
     }
   };
 
-  // Handle Run: update current config
   const handleRun = () => {
-    setCurrentConfig({ model: pendingModel, methods: pendingMethods });
     setSelectedModel(pendingModel);
-    setSelectedMethods(pendingMethods);
+    setSelectedMethods([...pendingMethods]);
+    setCurrentConfig({
+      model: pendingModel,
+      methods: [...pendingMethods],
+    });
     setTerminalScript(generateTerminalScript(pendingModel, pendingMethods));
   };
 
-  // Get stats for current config
-  const configLabel = getConfigLabel(currentConfig.methods);
-  const stats = (STATS_PRESETS[currentConfig.model] && STATS_PRESETS[currentConfig.model][configLabel]) || { accuracy: 0, memory: 0, latency: 0, power: 0 };
+  const currentStats = STATS_PRESETS[selectedModel]?.[getConfigLabel(selectedMethods)] || {
+    accuracy: 75, memory: 80, latency: 60, power: 30
+  };
 
   return (
-    <div className="products-page">
-      <div className="products-intro">
-        <div className="products-intro-content">
-          <h1 style={{ textAlign: 'left' }}>Model Compression Made Intuitive</h1>
-          <p style={{ textAlign: 'justify' }}>
-            Our platform guides you step-by-step, making advanced compression techniques like quantization and pruning as simple as clicking a button. No need to be a deep learning expert—just select your model, choose your goals, and let our engine do the rest. Experience how easy and intuitive model compression can be!
-          </p>
+    <div className="products">
+      <div className="products-hero">
+        <div className="hero-content">
+          <h1>AI Model Compression</h1>
+          <p>Optimize neural networks for edge deployment with our interactive compression engine</p>
         </div>
       </div>
-      <section className="products-cards-section">
-        <div className="products-cards-grid">
-          {/* Upper Left: Current Model Configuration (fills grid cell) */}
-          <div className="products-card products-card--left products-card--top products-dashboard-card" style={{padding: 0, boxShadow: '0 4px 24px rgba(10, 26, 47, 0.15)', display: 'flex', flexDirection: 'column', justifyContent: 'stretch', height: '100%'}}>
-            <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%', flex: 1 }}>
-              <div style={{ marginBottom: '1.2rem', padding: '2rem 2rem 0 2rem' }}>
-                <h3 style={{ margin: 0, fontWeight: 700, textAlign: 'justify', flex: 1 }}>Current Model Configuration</h3>
-              </div>
-              <div className="products-config-row" style={{ justifyContent: 'center', textAlign: 'center', padding: '0 2rem' }}>
-                <div><span className="products-config-label">Model:</span> {currentConfig.model}</div>
-                <div><span className="products-config-label">Compression Level:</span> {getConfigLabel(currentConfig.methods)}</div>
-                <div><span className="products-config-label">Weight Precision:</span> {currentConfig.methods.includes('Quantization') ? 'INT8 (25%)' : 'FP32'}</div>
-              </div>
-              <div className="products-stats-row" style={{padding: '0 2rem 2rem 2rem', justifyContent: 'center'}}>
-                <div className="products-stat-card products-stat-accuracy">
-                  <div className="products-stat-label">Accuracy</div>
-                  {stats.accuracy}%
-                </div>
-                <div className="products-stat-card products-stat-memory">
-                  <div className="products-stat-label">Memory (MB)</div>
-                  {stats.memory}
-                </div>
-                <div className="products-stat-card products-stat-latency">
-                  <div className="products-stat-label">Latency (ms)</div>
-                  {stats.latency}
-                </div>
-                <div className="products-stat-card products-stat-power">
-                  <div className="products-stat-label">Power (mW)</div>
-                  {stats.power}
-                </div>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem', width: '100%' }}>
-                <button className="products-run-btn run-inside" onClick={handleRun}>Run</button>
-              </div>
-            </div>
-          </div>
-          {/* Upper Right: Compression Configuration (fills grid cell) */}
-          <div className="products-card products-card--right products-card--top products-dashboard-card" style={{padding: 0, boxShadow: '0 4px 24px rgba(10, 26, 47, 0.15)'}}>
-            <div style={{padding: '2rem 2rem 2rem 2rem'}}>
-              <h3 style={{ fontWeight: 700, marginBottom: '1.2rem', textAlign: 'justify' }}>Compression Configuration</h3>
-              <div style={{ marginBottom: '1.2rem', fontWeight: 600, textAlign: 'justify' }}>1. Select Model</div>
-              <div className="products-btn-group" style={{ marginBottom: '2rem' }}>
+
+      <div className="products-section">
+        <div className="section-container">
+          <div className="config-panel">
+            <h2>Configuration</h2>
+            
+            <div className="config-group">
+              <label>Model Architecture</label>
+              <div className="model-buttons">
                 {MODELS.map((model) => (
                   <button
                     key={model}
-                    className={`products-btn${pendingModel === model ? ' active' : ''}`}
+                    className={`model-button ${pendingModel === model ? 'selected' : ''}`}
                     onClick={() => setPendingModel(model)}
                   >
                     {model}
                   </button>
                 ))}
               </div>
-              <div style={{ marginBottom: '1.2rem', fontWeight: 600, textAlign: 'justify' }}>2. Select Compression Method</div>
-              <div className="products-btn-group">
+            </div>
+
+            <div className="config-group">
+              <label>Compression Methods</label>
+              <div className="method-buttons">
                 {METHODS.map((method) => (
                   <button
                     key={method}
-                    className={`products-btn${pendingMethods.includes(method) ? ' active' : ''}`}
+                    className={`method-button ${pendingMethods.includes(method) ? 'selected' : ''}`}
                     onClick={() => handleMethodClick(method)}
-                    disabled={pendingMethods.includes('Original') && method !== 'Original'}
                   >
                     {method}
                   </button>
                 ))}
               </div>
             </div>
+
+            <button className="run-button" onClick={handleRun}>
+              Run Compression
+            </button>
           </div>
-          {/* Lower Left: Contact Card */}
-          <div className="products-card products-card--left products-card--bottom products-contact-card">
-            <div className="products-card-content">
-              <h2>Contact Us</h2>
-              <p style={{ textAlign: 'justify' }}>
-                Want to learn how to integrate our tools into your business? Reach out and our team will get in touch!
-              </p>
-              <button
-                className="products-contact-redirect-btn"
-                onClick={() => window.location.href = '/contact'}
-              >
-                Go to Contact Page
-              </button>
+
+          <div className="terminal-panel">
+            <h2>Compression Engine</h2>
+            <ProductTerminalDemo script={terminalScript} />
+          </div>
+        </div>
+      </div>
+
+      <div className="products-section">
+        <div className="section-container">
+          <h2>Performance Metrics</h2>
+          <div className="metrics-grid">
+            <div className="metric-card">
+              <div className="metric-value">{currentStats.accuracy}%</div>
+              <div className="metric-label">Accuracy</div>
             </div>
-          </div>
-          {/* Lower Right: Terminal Demo Card */}
-          <div className="products-card products-card--right products-card--bottom">
-            <div className="products-card-content" style={{ textAlign: 'justify', width: '100%', height: '100%' }}>
-              <ProductTerminalDemo script={terminalScript} />
+            <div className="metric-card">
+              <div className="metric-value">{currentStats.memory}MB</div>
+              <div className="metric-label">Memory</div>
+            </div>
+            <div className="metric-card">
+              <div className="metric-value">{currentStats.latency}ms</div>
+              <div className="metric-label">Latency</div>
+            </div>
+            <div className="metric-card">
+              <div className="metric-value">{currentStats.power}mW</div>
+              <div className="metric-label">Power</div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
