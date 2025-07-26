@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
-    "framer-motion": "^12.15.0",
-    "gray-matter": "^4.0.3",
     "lucide-react": "^0.507.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
