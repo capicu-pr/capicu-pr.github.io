@@ -47,7 +47,7 @@
 }
 
 .dot.red {
-  background-color: #e63946;
+  background-color: var(--red);
 }
 
 .dot.yellow {
@@ -61,7 +61,7 @@
 .terminal-title {
   color: var(--beige);
   font-size: 0.9rem;
-  font-family: 'SF Mono', 'Menlo', monospace;
+  font-family: var(--font-mono);
 }
 
 .terminal-status {
@@ -70,7 +70,7 @@
   gap: 0.5rem;
   font-size: 0.95rem;
   color: #27c93f;
-  font-family: 'SF Mono', 'Menlo', monospace;
+  font-family: var(--font-mono);
   font-weight: 600;
 }
 
@@ -94,7 +94,7 @@
 
 .terminal-body pre {
   margin: 0;
-  font-family: 'SF Mono', 'Menlo', monospace;
+  font-family: var(--font-mono);
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--beige);
@@ -166,7 +166,7 @@
 
 .terminal-prompt {
   color: #7fd1b9;
-  font-family: 'SF Mono', 'Menlo', monospace;
+  font-family: var(--font-mono);
   font-weight: 600;
   margin-right: 0.2em;
 }
