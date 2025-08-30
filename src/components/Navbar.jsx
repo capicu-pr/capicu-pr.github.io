@@ -11,11 +11,8 @@ export default function Navbar() {
         </NavLink>
         <div className="navbar-links">
           <NavLink to="/" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Home</NavLink>
-          <NavLink to="/about" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>About</NavLink>
-          <NavLink to="/blog" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Blog</NavLink>
           <NavLink to="https://research.capicupuertorico.com/" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Research</NavLink>
           <NavLink to="https://github.com/capicu-pr" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>GitHub</NavLink>
-          <NavLink to="/contact" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Contact</NavLink>
         </div>
       </div>
     </nav>

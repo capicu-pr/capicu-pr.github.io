@@ -8,19 +8,12 @@ export default function Footer() {
       <div className="footer-content">
         <div className="footer-col brand-col">
           <div className="footer-logo">Capicú</div>
-          <div className="footer-tagline">Making AI fit anywhere.</div>
+          <div className="footer-tagline">Making AI Fit Anywhere.</div>
         </div>
 
         <div className="footer-col">
           <div className="footer-col-title">Company</div>
-          <Link to="/about">About</Link>
           <Link to="https://research.capicupuertorico.com/">Research</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/blog">Blog</Link>
-        </div>
-        <div className="footer-col">
-          <div className="footer-col-title">Resources</div>
-          <Link to="/blog">Blog</Link>
         </div>
       </div>
       <div className="footer-bottom">
