@@ -16,6 +16,7 @@ import cseUprmLogo from "../assets/cse-uprm-logo.png";
 import engineeringUprmLogo from "../assets/engineering-uprm-logo.png";
 import cawtLogo from "../assets/cawt-logo.png";
 import prEpscorLogo from "../assets/pr-epscor-logo.png";
+import movingAiToEdge from "../assets/moving-ai-to-edge.png";
 import "../styles/Home.css";
 
 export default function Home() {
@@ -66,7 +67,7 @@ export default function Home() {
         <div className="cloudless-container">
           <div className="cloudless-content">
             <div className="cloudless-image">
-              <img src="/src/assets/moving-ai-to-edge.png" alt="Compute Tradeoffs: Power vs. Proximity, Layers of Computing Infrastructure, and Model Fit for Edge AI" />
+              <img src={movingAiToEdge} alt="Compute Tradeoffs: Power vs. Proximity, Layers of Computing Infrastructure, and Model Fit for Edge AI" />
             </div>
             <div className="cloudless-text">
               <h2>Cloud<span className="highlight-red">less</span>, Edge Intelligence.</h2>
