@@ -124,7 +124,7 @@ export default function Home() {
               <div className="team-info">
                 <h1>Our Builders & Leadership</h1>
                 <p>We operate from Mayagüez, Puerto Rico, a hub of engineering talent and applied scientific research. Our work is deeply connected to the University of Puerto Rico at Mayagüez (UPRM) — one of the nation's leading Hispanic-Serving Institutions and a recognized leader in STEM. Our founding team has a breadth and depth of experience in Academic, Industry, and Federal projects in machine learning, software development, electronics, and cybersecurity, whilst being advised by leading professionals in high-risk tech and applied computational sciences.</p>
-                <button className="advisory-btn" onClick={() => setShowAdvisoryModal(true)}>Capicú Advisory Committee</button>
+                {/* <button className="advisory-btn" onClick={() => setShowAdvisoryModal(true)}>Capicú Advisory Committee</button> */}
               </div>
               
               <div className="founders-section">
@@ -189,7 +189,7 @@ export default function Home() {
                       <a href="https://github.com/misaelmercado1" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <i className="fab fa-github"></i>
                       </a>
-                      <a href="mailto:mmercado@capicupuertorico.com" aria-label="Email">
+                      <a href="mailto:mmercado@y puertorico.com" aria-label="Email">
                         <i className="fas fa-envelope"></i>
                       </a>
                     </div>
