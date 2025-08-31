@@ -19,7 +19,10 @@
 .team-info p,
 .founder-card,
 .contact-section h2,
-.contact-section p {
+.contact-section p,
+.offerings-text h2,
+.offerings-text p,
+.offering-card {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
@@ -41,7 +44,10 @@
   .team-info p,
   .founder-card,
   .contact-section h2,
-  .contact-section p {
+  .contact-section p,
+  .offerings-text h2,
+  .offerings-text p,
+  .offering-card {
     animation: fadeInFallback 2s ease-out 3s forwards;
   }
 }
@@ -65,7 +71,10 @@
 .team-info p.animate-slide-up,
 .founder-card.animate-slide-up,
 .contact-section h2.animate-slide-up,
-.contact-section p.animate-slide-up {
+.contact-section p.animate-slide-up,
+.offerings-text h2.animate-slide-up,
+.offerings-text p.animate-slide-up,
+.offering-card.animate-slide-up {
   transition-delay: 0s;
 }
 
@@ -102,6 +111,7 @@
 .home .cloudless-section,
 .home .demo-section,
 .home .navy-section,
+.home .offerings-section,
 .home .contact-section {
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -748,7 +758,101 @@
     visibility: hidden;
   }
 
+  /* What We Offer Section */
+  .offerings-section {
+    background: var(--beige);
+    padding: 8rem 0 5rem 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
 
+  .offerings-container {
+    width: 100%;
+    margin: 0;
+    padding: 0 2rem;
+  }
+
+  .offerings-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .offerings-text {
+    text-align: left;
+  }
+
+  .offerings-text h2 {
+    font-size: clamp(4.5rem, 5vw, 3.5rem);
+    color: var(--navy);
+    margin-bottom: 1rem;
+    font-weight: 800;
+  }
+
+  .offerings-subtitle {
+    font-size: 1.5rem;
+    color: var(--navy);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .offerings-text p {
+    font-size: 1.5rem;
+    color: var(--navy);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .offerings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .offering-card {
+    background: var(--beige);
+    border: 1px solid rgba(10, 26, 47, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 24px rgba(10, 26, 47, 0.08);
+  }
+
+  .offering-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 32px rgba(10, 26, 47, 0.15);
+    border-color: var(--red);
+  }
+
+  .offering-icon {
+    margin-bottom: 1.5rem;
+  }
+
+  .offering-icon i {
+    font-size: 2.5rem;
+    color: var(--red);
+    background: rgba(220, 53, 69, 0.1);
+    border-radius: 50%;
+    padding: 1rem;
+    display: inline-block;
+  }
+
+  .offering-card h3 {
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  .offering-card p {
+    font-size: 1.1rem;
+    color: var(--navy);
+    line-height: 1.6;
+    margin: 0;
+  }
 
   .founders-section {
     display: flex;
@@ -1586,7 +1690,7 @@
   margin-bottom: 1rem;
   color: var(--navy);
   font-weight: 800;
-  text-align: left;
+  text-align: center;
 }
 
 .contact-left > p {
@@ -1594,12 +1698,12 @@
   line-height: 1.6;
   margin-bottom: 2rem;
   color: var(--navy);
-  text-align: left;
+  text-align: center;
 }
 
 .company-info {
   margin-bottom: 2rem;
-  text-align: left;
+  text-align: center;
 }
 
 .company-info h2 {
@@ -1607,7 +1711,7 @@
   font-weight: 800;
   margin-bottom: 1rem;
   color: var(--navy);
-  text-align: left;
+  text-align: center;
 }
 
 .company-info p {
@@ -1615,7 +1719,7 @@
   line-height: 1.6;
   margin-bottom: 0.5rem;
   color: var(--navy);
-  text-align: left;
+  text-align: center;
 }
 
 .social-section {
@@ -1626,13 +1730,13 @@
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: var(--navy);
-  text-align: left;
+  text-align: center;
 }
 
 .social-links {
   display: flex;
   gap: 1rem;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .social-links a {
@@ -1889,6 +1993,12 @@
   
   .cloudless-text {
     order: 2;
+    text-align: center;
+  }
+  
+  .cloudless-text h2,
+  .cloudless-text p {
+    text-align: center;
   }
   
   .demo-content {
@@ -1898,6 +2008,12 @@
   
   .demo-text {
     order: 1;
+    text-align: center;
+  }
+  
+  .demo-text h2,
+  .demo-text p {
+    text-align: center;
   }
   
   .demo-video {
@@ -1909,6 +2025,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  
+  .offerings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .offerings-text {
+    text-align: center;
+    order: 1;
+  }
+  
+  .offerings-grid {
+    order: 2;
   }
   
   .team-layout {
@@ -1976,6 +2107,27 @@
     font-size: 1.1rem;
   }
   
+  /* Center contact info section specifically (excluding form) */
+  .contact-left h1,
+  .contact-left > p,
+  .contact-left .company-info h2,
+  .contact-left .company-info p,
+  .contact-left .social-section h4 {
+    text-align: center;
+  }
+  
+  /* Force center all text in contact-left section */
+  .contact-left {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-left * {
+    text-align: center;
+  }
+  
   .contact-item {
     padding: 1rem;
   }
@@ -2026,6 +2178,21 @@
     justify-content: center;
   }
   
+  .offerings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .offerings-text {
+    text-align: center;
+    order: 1;
+  }
+  
+  .offerings-grid {
+    order: 2;
+  }
+  
   .inquiry-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -2061,7 +2228,7 @@
   }
   
   .social-links {
-    justify-content: flex-start;
+    justify-content: center;
   }
   
   .social-links a {
@@ -2072,6 +2239,28 @@
   .social-links i {
     font-size: 1rem;
   }
+  
+  /* Center all text in sections on mobile */
+  .cloudless-section h2,
+  .cloudless-section p,
+  .demo-section h2,
+  .demo-section p,
+  .offerings-section h2,
+  .offerings-section p,
+  .navy-section h2,
+  .navy-section p,
+  .team-section h2,
+  .team-section p,
+  .program-logos h3,
+  .program-logos p,
+  .advisory-section h2,
+  .advisory-section p,
+  .contact-section h2,
+  .contact-section p {
+    text-align: center;
+  }
+  
+
   
   /* Mobile responsive styles for all sections */
   .home .hero {
@@ -2233,12 +2422,71 @@
     height: 40px;
   }
   
+  .offerings-section {
+    padding: 8rem 1rem;
+  }
+  
+  .offerings-container {
+    padding: 0 1rem;
+    width: 90%;
+    max-width: 100%;
+  }
+  
+  .offerings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .offerings-text {
+    text-align: center;
+    order: 1;
+  }
+  
+  .offerings-text h2 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+  
+  .offerings-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .offerings-text p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .offerings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    order: 2;
+  }
+  
+  .offering-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .offering-card h3 {
+    font-size: 1.3rem;
+  }
+  
+  .offering-card p {
+    font-size: 1rem;
+  }
+  
   .navy-section {
     padding: 3rem 1rem;
   }
   
   .navy-container {
     padding: 0 1rem;
+  }
+  
+  .navy-section h2,
+  .navy-section p {
+    text-align: center;
   }
   
   .team-layout {
@@ -2454,6 +2702,57 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  
+  .offerings-section {
+    padding: 6rem 0.5rem;
+  }
+  
+  .offerings-container {
+    padding: 0 0.5rem;
+  }
+  
+  .offerings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .offerings-text {
+    order: 1;
+  }
+  
+  .offerings-text h2 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+  
+  .offerings-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .offerings-text p {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .offerings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    order: 2;
+  }
+  
+  .offering-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .offering-card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .offering-card p {
+    font-size: 0.9rem;
   }
   
   .demo-logo {

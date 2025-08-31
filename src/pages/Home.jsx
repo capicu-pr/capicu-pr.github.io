@@ -124,7 +124,7 @@ export default function Home() {
               <div className="team-info">
                 <h1>Our Builders & Leadership</h1>
                 <p>We operate from Mayagüez, Puerto Rico, a hub of engineering talent and applied scientific research. Our work is deeply connected to the University of Puerto Rico at Mayagüez (UPRM) — one of the nation's leading Hispanic-Serving Institutions and a recognized leader in STEM. Our founding team has a breadth and depth of experience in Academic, Industry, and Federal projects in machine learning, software development, electronics, and cybersecurity, whilst being advised by leading professionals in high-risk tech and applied computational sciences.</p>
-                {/* <button className="advisory-btn" onClick={() => setShowAdvisoryModal(true)}>Capicú Advisory Committee</button> */}
+                {/* <button className="advisory-btn" onClick={() =be two> setShowAdvisoryModal(true)}>Capicú Advisory Committee</button> */}
               </div>
               
               <div className="founders-section">
@@ -201,6 +201,62 @@ export default function Home() {
         </div>
       </section>
 
+      {/* What We Offer Section */}
+      <section className="offerings-section">
+        <div className="offerings-container">
+          <div className="offerings-content">
+            <div className="offerings-text">
+            <h2>Frontier <span className="highlight-red">Edge AI</span> for Applied Sciences</h2>
+            <p className="offerings-subtitle">
+              Decisions in milliseconds. Data stays on-device. Built for labs, clinics, and the field.
+            </p>
+            <p>
+              Choosing us as your partner means aligning with <span className="highlight-red"><strong>cutting-edge ML Engineering & Data Science services</strong></span>, tailored to meet the specific needs of your research or clinical applications.
+              Whether you're exploring novel biomarkers or innovative medtech we turn your systems into real-time analysts that can drive your projects forward, ensuring reliable, reproducible, and meaningful results.
+              <strong>We're shipping intelligence to where samples, signals, and patients actually are.</strong>
+            </p>
+            <p>
+              We align our work with existing regulatory and quality frameworks (GDPR, ISO/IEC, GMLP, etc.), ensuring compliance and transparency throughout our projects.
+            </p>
+            </div>
+            
+            <div className="offerings-grid">
+              <div className="offering-card">
+                <div className="offering-icon">
+                  <i className="fas fa-microchip"></i>
+                </div>
+                <h3>Edge AI Development</h3>
+                <p>Custom model development optimized for embedded systems, reducing latency and power consumption while maintaining accuracy in resource-constrained environments.</p>
+              </div>
+              
+              <div className="offering-card">
+                <div className="offering-icon">
+                  <i className="fas fa-compress-arrows-alt"></i>
+                </div>
+                <h3>Model Compression</h3>
+                <p>Advanced techniques to shrink AI models by up to 90% without significant performance loss, enabling deployment on edge devices with limited memory.</p>
+              </div>
+              
+              <div className="offering-card">
+                <div className="offering-icon">
+                  <i className="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>Performance Optimization</h3>
+                <p>Fast <em>time-to-insight</em> for real-time applications, ensuring your devices can process data and make decisions instantly.</p>
+              </div>
+              
+              <div className="offering-card">
+                <div className="offering-icon">
+                  <i className="fas fa-shield-alt"></i>
+                </div>
+                <h3>Resillient Edge Computing</h3>
+                <p>Privacy-preserving AI solutions that keep sensitive data local, reducing cloud dependencies and enhancing security for healthcare and industrial applications.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="contact-section">
         <div className="contact-container">
@@ -211,7 +267,7 @@ export default function Home() {
             <div className="company-info">
               <h2>Capicú Technologies</h2>
               <p>62 Calle Ernesto Ramos Antonini</p>
-              <p>Mayagüez, PR 00682</p>
+              <p>Mayagüez, PR 00680</p>
               <p><strong>T:</strong> +1 (787) 601-1026</p>
               <p><strong>E:</strong> info@capicupuertorico.com</p>
             </div>

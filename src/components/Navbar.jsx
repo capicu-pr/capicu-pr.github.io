@@ -8,6 +8,7 @@ export default function Navbar() {
       <div className="navbar-inner">
         <NavLink to="/" className="navbar-logo" aria-label="Home">
           <img src={logoSolo} alt="Capicú Logo" />
+          <span className="navbar-brand-name">Capicú Technologies</span>
         </NavLink>
         <div className="navbar-links">
           <NavLink to="/" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Home</NavLink>

@@ -20,10 +20,24 @@
   justify-content: space-between;
 }
 
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
 .navbar-logo img {
   height: 48px;
   width: auto;
   display: block;
+}
+
+.navbar-brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--red);
+  letter-spacing: 0.02em;
 }
 
 .navbar-links {
@@ -80,11 +94,23 @@
   .navbar-logo img {
     height: 36px;
   }
+  .navbar-brand-name {
+    font-size: 1.2rem;
+  }
   .navbar-links {
     gap: 1.2rem;
   }
   .nav-link {
     font-size: 1rem;
     padding: 0.3rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar-brand-name {
+    font-size: 1rem;
+  }
+  .navbar-logo {
+    gap: 0.5rem;
   }
 } 
