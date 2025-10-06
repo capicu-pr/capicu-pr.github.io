@@ -1,19 +1,27 @@
 import { NavLink } from "react-router-dom";
-import logoSolo from "../assets/logo-solo.png";
+import logoHorz from "../assets/logo-horz.png";
 import "../styles/Navbar.css";
 
-export default function Navbar() {
+export default function Navbar({ onOpenProjectModal }) {
   return (
     <nav className="navbar">
       <div className="navbar-inner">
         <NavLink to="/" className="navbar-logo" aria-label="Home">
-          <img src={logoSolo} alt="Capicú Logo" />
-          <span className="navbar-brand-name">Capicú Technologies</span>
+          <img src={logoHorz} alt="Capicú Logo" className="navbar-horizontal-logo" />
         </NavLink>
+        
         <div className="navbar-links">
           <NavLink to="/" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Home</NavLink>
-          <NavLink to="https://research.capicupuertorico.com/" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>Research</NavLink>
           <NavLink to="https://github.com/capicu-pr" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>GitHub</NavLink>
+        </div>
+        
+        <div className="navbar-cta-buttons">
+          <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com" className="cta-button primary">
+            Get Started
+          </a>
+          <button onClick={onOpenProjectModal} className="cta-button secondary">
+            Book a Demo
+          </button>
         </div>
       </div>
     </nav>
