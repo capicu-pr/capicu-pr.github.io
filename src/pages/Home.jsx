@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import ContactForm from "../components/ContactForm";
 import { initScrollAnimations } from "../utils/scrollAnimations";
 import { initTypewriter } from "../utils/typewriter";
+import VerticalsCarousel from "../components/VerticalsCarousel";
+import { Compass, Database, Brain, Layout, Server, Headphones } from "lucide-react";
 import logoSolo from "../assets/logo-solo.png";
 import nsfAccessLogo from "../assets/nsf-access-logo.png";
 import pgLogo from "../assets/pg-logo.png";
 import prstrtLogo from "../assets/prstrt-logo.png";
 import colmena66Logo from "../assets/colmena66-logo.png";
 import anemicareDemo from "../assets/anemicare-demo.mov";
+import movingAiToEdge from "../assets/moving-ai-to-edge.png";
 import sebastianImage from "../assets/sebastiancruz_headshot.png";
 import luisImage from "../assets/luisluna_headshot.png";
 import misaelImage from "../assets/misaelmercado_headshot.png";
@@ -16,16 +18,66 @@ import cseUprmLogo from "../assets/cse-uprm-logo.png";
 import engineeringUprmLogo from "../assets/engineering-uprm-logo.png";
 import cawtLogo from "../assets/cawt-logo.png";
 import prEpscorLogo from "../assets/pr-epscor-logo.png";
-import movingAiToEdge from "../assets/moving-ai-to-edge.png";
 import "../styles/Home.css";
 
-export default function Home() {
+export default function Home({ showProjectModal, setShowProjectModal }) {
   const [showAdvisoryModal, setShowAdvisoryModal] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    countryCode: '+1',
+    country: '',
+    projectDescription: ''
+  });
 
   useEffect(() => {
     initScrollAnimations();
     initTypewriter();
   }, []);
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const { firstName, lastName, email, phone, countryCode, country, projectDescription } = formData;
+    const fullPhone = `${countryCode} ${phone}`;
+    
+    const subject = `Project Discussion Request from ${firstName} ${lastName}`;
+    const body = `Name: ${firstName} ${lastName}
+Email: ${email}
+Phone: ${fullPhone}
+Country: ${country}
+
+Project Description:
+${projectDescription}`;
+
+    const mailtoLink = `mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    window.location.href = mailtoLink;
+    setShowProjectModal(false);
+  };
+
+         // Handle modal open/close to hide/show navbar
+         useEffect(() => {
+           if (showProjectModal || showAdvisoryModal) {
+             document.body.classList.add('modal-open');
+           } else {
+             document.body.classList.remove('modal-open');
+           }
+           
+           // Cleanup on unmount
+           return () => {
+             document.body.classList.remove('modal-open');
+           };
+         }, [showProjectModal, showAdvisoryModal]);
 
   return (
     <div className="home">
@@ -35,14 +87,15 @@ export default function Home() {
           <div className="hero-text">
           <h1>Making AI Fit Anywhere. <br /><span className="typewriter" id="typewriter1">Smarter</span></h1>
           {/* <h1>not <span className="typewriter" id="typewriter2"></span></h1> */}
-          <p className="tagline">By compressing AI into embedded systems, we deliver advanced analytics for where life sciences data is born.</p>
+          <p className="tagline">Capicú is an Applied AI/ML studio that co‑designs advanced analytical systems to work directly
+          where biological and medical data is collected.</p>
             <div className="cta-buttons">
-              <a href="#contact" className="cta-button primary">
+              <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com" className="cta-button primary">
                 Get Started
               </a>
-              <a href="https://research.capicupuertorico.com/" className="cta-button secondary">
-                Learn More
-              </a>
+                     <button onClick={() => setShowProjectModal(true)} className="cta-button secondary">
+                       Book a Demo
+                     </button>
             </div>
           </div>
           <div className="hero-logo-container">
@@ -66,55 +119,84 @@ export default function Home() {
       <section className="cloudless-section">
         <div className="cloudless-container">
           <div className="cloudless-content">
-            <div className="cloudless-image">
-              <img src={movingAiToEdge} alt="Compute Tradeoffs: Power vs. Proximity, Layers of Computing Infrastructure, and Model Fit for Edge AI" />
-            </div>
             <div className="cloudless-text">
-              <h2>Cloud<span className="highlight-red">less</span>, Edge Intelligence.</h2>
-              <p>Traditional AI depends on central compute, which is slow and infrastructure-heavy. Moreover, devices (PCs, mobile, wearables) rely on upstream data aggregation, increasing latency and compute costs. Now, we have data in bulk quantities and intermittently processed.</p>
-              <p>At Capicú, we're turning sensing equipment into <strong>intelligent instruments</strong>—reducing cloud costs and <em>time-to-insight</em>. We develop and test models, tools, and entire systems to enable <strong className="highlight-red">powerful analytics directly at the data source</strong> even with intermittent power, spotty connectivity, or no bandwidth for expensive compute.</p>
+              <h2 className="first-section-header">Cloud<span className="highlight-red">less</span>, Edge Intelligence</h2>
+              <p className="first-section-text">Traditional AI depends on central compute, which is slow and infrastructure-heavy. Moreover, devices (PCs, mobile, wearables) rely on upstream data aggregation, increasing latency and compute costs. Now, we have data in bulk quantities and intermittently processed.</p>
+              <p className="first-section-text">At Capicú, we're turning sensing equipment into <br/>intelligent instruments—reducing cloud costs and <em>time-to-insight</em>. We develop and test models, tools, and entire systems to enable <strong className="highlight-red">powerful analytics directly at the data source</strong> even with intermittent power, spotty connectivity, or no bandwidth for expensive compute.</p>
+            </div>
+
+
+            <div className="cloudless-image">
+              <img 
+                src={movingAiToEdge} 
+                alt="Moving AI to Edge - Cloudless Intelligence Architecture"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Demo Section */}
-      <section className="demo-section">
-        <div className="demo-container">
-          <div className="demo-content">
-            <div className="demo-text">
-              <h2>What started us towards <span className="highlight-red">Edge AI</span> in <span className="highlight-red">Healthcare</span>?</h2>
-              <p><a href="https://tinyurl.com/anemicare" target="_blank" rel="noopener noreferrer"><strong>Anemicare</strong></a> was a senior design project from students at the <strong>University of Puerto Rico at Mayagüez</strong> that aimed to develop a portable electronic health record system with built-in modules for critical care screening. </p>
-              <p>We used model compression methods to <strong className="highlight-red">reduce model size and inference latency</strong> <strong>to have fingernail bed segmentation and colorimetric estimation of hemoglobin with</strong> <strong className="highlight-red">sub-20 ms time-to-insight</strong><strong> in embedded hardware</strong>. Our preliminary design was accepted at <a href="https://ieeeghtc.org" target="_blank" rel="noopener noreferrer"><em>2025 IEEE Global Humanitarian Technology Conference (GHTC)</em></a> as a translational application of Edge AI to improve healthcare access in remote areas with limited resources.</p>
-              <div className="demo-citation">
-                <p>S. A. Cruz Romero, M. J. Mercado Hernández, S. Y. Ali Rivera, J. A. Santiago Fernandez, W. E. Lugo Beauchamp. "Design of an Edge-based Portable EHR System for Anemia Screening in Remote Health Applications," <em>IEEE Global Humanitarian Technology Conference, 2025.</em>
-                <a href="https://arxiv.org/abs/2507.15146" target="_blank" rel="noopener noreferrer"> arXiv:2507.15146</a>
-                </p>
+      {/* Verticals Carousel */}
+      <VerticalsCarousel />
+
+      {/* Tailored Services & Development Section */}
+      <section className="services-section">
+        <div className="services-container">
+          <div className="services-content">
+                  <h2><span className="highlight-red">Tailored</span> Services & Development</h2>
+            <div className="services-grid">
+              <div className="service-card">
+                <div className="service-icon">
+                  <Compass size={48} />
+                </div>
+                <h3 style={{textAlign: 'justify'}}>Strategy & Roadmapping</h3>
+                <p style={{textAlign: 'justify'}}>Clarify goals, define success metrics, and prioritize a practical path from idea to pilot to scale.</p>
               </div>
-            </div>
-            <div className="demo-video">
-              <div className="video-wrapper">
-                <video 
-                  src={anemicareDemo} 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline
-                  className="video-frame"
-                />
+              
+              <div className="service-card">
+                <div className="service-icon">
+                  <Database size={48} />
+                </div>
+                <h3 style={{textAlign: 'justify'}}>Data Foundations</h3>
+                <p style={{textAlign: 'justify'}}>Set up simple, reliable ways to collect, clean, label, and track data—so analytics stay repeatable.</p>
               </div>
-              <div className="demo-logos">
-                <img src={uprmLogo} alt="UPRM Logo" className="demo-logo" />
-                <img src={cseUprmLogo} alt="CSE UPRM Logo" className="demo-logo" />
-                <img src={engineeringUprmLogo} alt="Engineering UPRM Logo" className="demo-logo" />
-                <img src={prEpscorLogo} alt="PR EPSCoR Logo" className="demo-logo" />
-                <img src={cawtLogo} alt="CAWT Logo" className="demo-logo" />
+              
+              <div className="service-card">
+                <div className="service-icon">
+                  <Brain size={48} />
+                </div>
+                <h3 style={{textAlign: 'justify'}}>Model Development & Evaluation</h3>
+                <p style={{textAlign: 'justify'}}>Build and test models (any modality) with clear performance criteria and lightweight explainability.</p>
+              </div>
+              
+              <div className="service-card">
+                <div className="service-icon">
+                  <Layout size={48} />
+                </div>
+                <h3 style={{textAlign: 'justify'}}>Product & Platform Build</h3>
+                <p style={{textAlign: 'justify'}}>Turn analytics into usable software—APIs, dashboards, and basic workflows—ready for real users.</p>
+              </div>
+              
+              <div className="service-card">
+                <div className="service-icon">
+                  <Server size={48} />
+                </div>
+                <h3 style={{textAlign: 'justify'}}>Deployment & Operations</h3>
+                <p style={{textAlign: 'justify'}}>Run solutions in the environments you need (cloud, on-prem, or edge), with monitoring and updates.</p>
+              </div>
+              
+              <div className="service-card">
+                <div className="service-icon">
+                  <Headphones size={48} />
+                </div>
+                <h3 style={{textAlign: 'justify'}}>Enablement & Support</h3>
+                <p style={{textAlign: 'justify'}}>Train teams, document what matters, and provide ongoing help to improve, retrain, and iterate.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
 
       {/* About Team Section */}
       <section className="navy-section">
@@ -124,7 +206,7 @@ export default function Home() {
               <div className="team-info">
                 <h1>Our Builders & Leadership</h1>
                 <p>We operate from Mayagüez, Puerto Rico, a hub of engineering talent and applied scientific research. Our work is deeply connected to the University of Puerto Rico at Mayagüez (UPRM) — one of the nation's leading Hispanic-Serving Institutions and a recognized leader in STEM. Our founding team has a breadth and depth of experience in Academic, Industry, and Federal projects in machine learning, software development, electronics, and cybersecurity, whilst being advised by leading professionals in high-risk tech and applied computational sciences.</p>
-                {/* <button className="advisory-btn" onClick={() =be two> setShowAdvisoryModal(true)}>Capicú Advisory Committee</button> */}
+                <button className="advisory-btn" onClick={() => setShowAdvisoryModal(true)}>Capicú Advisory Committee</button>
               </div>
               
               <div className="founders-section">
@@ -189,7 +271,7 @@ export default function Home() {
                       <a href="https://github.com/misaelmercado1" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                         <i className="fab fa-github"></i>
                       </a>
-                      <a href="mailto:mmercado@y puertorico.com" aria-label="Email">
+                      <a href="mailto:mmercado@capicupuertorico.com" aria-label="Email">
                         <i className="fas fa-envelope"></i>
                       </a>
                     </div>
@@ -197,99 +279,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What We Offer Section */}
-      <section className="offerings-section">
-        <div className="offerings-container">
-          <div className="offerings-content">
-            <div className="offerings-text">
-            <h2>Frontier <span className="highlight-red">Edge AI</span> for Applied Sciences</h2>
-            <p className="offerings-subtitle">
-              Decisions in milliseconds. Data stays on-device. Built for labs, clinics, and the field.
-            </p>
-            <p>
-              Choosing us as your partner means aligning with <span className="highlight-red"><strong>cutting-edge ML Engineering & Data Science services</strong></span>, tailored to meet the specific needs of your research or clinical applications.
-              Whether you're exploring novel biomarkers or innovative medtech we turn your systems into real-time analysts that can drive your projects forward, ensuring reliable, reproducible, and meaningful results.
-              <strong>We're shipping intelligence to where samples, signals, and patients actually are.</strong>
-            </p>
-            <p>
-              We align our work with existing regulatory and quality frameworks (GDPR, ISO/IEC, GMLP, etc.), ensuring compliance and transparency throughout our projects.
-            </p>
-            </div>
-            
-            <div className="offerings-grid">
-              <div className="offering-card">
-                <div className="offering-icon">
-                  <i className="fas fa-microchip"></i>
-                </div>
-                <h3>Edge AI Development</h3>
-                <p>Custom model development optimized for embedded systems, reducing latency and power consumption while maintaining accuracy in resource-constrained environments.</p>
-              </div>
-              
-              <div className="offering-card">
-                <div className="offering-icon">
-                  <i className="fas fa-compress-arrows-alt"></i>
-                </div>
-                <h3>Model Compression</h3>
-                <p>Advanced techniques to shrink AI models by up to 90% without significant performance loss, enabling deployment on edge devices with limited memory.</p>
-              </div>
-              
-              <div className="offering-card">
-                <div className="offering-icon">
-                  <i className="fas fa-tachometer-alt"></i>
-                </div>
-                <h3>Performance Optimization</h3>
-                <p>Fast <em>time-to-insight</em> for real-time applications, ensuring your devices can process data and make decisions instantly.</p>
-              </div>
-              
-              <div className="offering-card">
-                <div className="offering-icon">
-                  <i className="fas fa-shield-alt"></i>
-                </div>
-                <h3>Resillient Edge Computing</h3>
-                <p>Privacy-preserving AI solutions that keep sensitive data local, reducing cloud dependencies and enhancing security for healthcare and industrial applications.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="contact-section">
-        <div className="contact-container">
-          <div className="contact-left">
-            <h1>Reach out!</h1>
-            <p>We'll be your strategic partner for your project needs.</p>
-            
-            <div className="company-info">
-              <h2>Capicú Technologies</h2>
-              <p>62 Calle Ernesto Ramos Antonini</p>
-              <p>Mayagüez, PR 00680</p>
-              <p><strong>T:</strong> +1 (787) 601-1026</p>
-              <p><strong>E:</strong> info@capicupuertorico.com</p>
-            </div>
-            
-            <div className="social-section">
-              <h4>Follow us!</h4>
-              <div className="social-links">
-                <a href="https://linkedin.com/company/capicu-pr" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-linkedin"></i>
-                </a>
-                <a href="https://instagram.com/capicu.pr" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-instagram"></i>
-                </a>
-                <a href="https://github.com/capicu-pr" target="_blank" rel="noopener noreferrer">
-                  <i className="fab fa-github"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div className="contact-right">
-            <ContactForm />
           </div>
         </div>
       </section>
@@ -338,6 +327,180 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Get Started Section */}
+      <section className="cloudless-section">
+        <div className="cloudless-container">
+          <div className="cloudless-content">
+            <div className="cloudless-text">
+              <h2 className="first-section-header">Get started with Capicú</h2>
+              <div className="cta-buttons">
+                <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com" className="cta-button primary">
+                  Get Started
+                </a>
+                <button onClick={() => setShowProjectModal(true)} className="cta-button secondary">
+                  Discuss a Project
+                </button>
+              </div>
+            </div>
+            
+            <div className="cloudless-videos">
+              <div className="video-container">
+                <iframe
+                  src="https://www.youtube.com/embed/ITa_UHi1MLc?autoplay=1&mute=1"
+                  title="Capicú Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Discussion Modal */}
+      {showProjectModal && (
+        <div className="modal-overlay" onClick={() => setShowProjectModal(false)}>
+          <div className="modal-content project-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Book a Demo</h2>
+              <button className="modal-close" onClick={() => setShowProjectModal(false)}>×</button>
+            </div>
+            
+            <form onSubmit={handleFormSubmit} className="project-form">
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="firstName">First name*</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleFormChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="lastName">Last name*</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleFormChange}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email">Work email*</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleFormChange}
+                  required
+                />
+              </div>
+
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="countryCode">Phone number</label>
+                  <div className="phone-input-group">
+                    <select
+                      id="countryCode"
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleFormChange}
+                      className="country-code-select"
+                    >
+                      <option value="+1">🇺🇸 +1</option>
+                      <option value="+1">🇵🇷 +1</option>
+                      <option value="+52">🇲🇽 +52</option>
+                      <option value="+34">🇪🇸 +34</option>
+                      <option value="+44">🇬🇧 +44</option>
+                      <option value="+33">🇫🇷 +33</option>
+                      <option value="+49">🇩🇪 +49</option>
+                      <option value="+81">🇯🇵 +81</option>
+                      <option value="+86">🇨🇳 +86</option>
+                      <option value="+91">🇮🇳 +91</option>
+                      <option value="+55">🇧🇷 +55</option>
+                      <option value="+54">🇦🇷 +54</option>
+                      <option value="+56">🇨🇱 +56</option>
+                      <option value="+57">🇨🇴 +57</option>
+                    </select>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleFormChange}
+                      placeholder="Phone number"
+                      className="phone-input"
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="country">Country*</label>
+                  <select
+                    id="country"
+                    name="country"
+                    value={formData.country}
+                    onChange={handleFormChange}
+                    required
+                  >
+                    <option value="">Select Country</option>
+                    <option value="United States">United States</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Spain">Spain</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="France">France</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Japan">Japan</option>
+                    <option value="China">China</option>
+                    <option value="India">India</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="projectDescription">Tell us about your project needs!</label>
+                <textarea
+                  id="projectDescription"
+                  name="projectDescription"
+                  value={formData.projectDescription}
+                  onChange={handleFormChange}
+                  rows="4"
+                  placeholder="Describe your project requirements, goals, and any specific needs..."
+                />
+              </div>
+
+              <div className="privacy-notice">
+                <p>
+                  Capicú Technologies needs the contact information you provide to us to contact you about our products and services. 
+                  You may unsubscribe from these communications at any time. For information on how to unsubscribe, as well as our 
+                  privacy practices and commitment to protecting your privacy, please review our{' '}
+                  <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                </p>
+              </div>
+
+              <button type="submit" className="submit-button">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
+      
     </div>
   );
 } 
