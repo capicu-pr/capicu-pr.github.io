@@ -1,0 +1,132 @@
+/* Footer Styles */
+.footer {
+  background: var(--beige);
+  color: var(--navy);
+  padding: 4rem 0 2rem;
+  margin-top: 6rem;
+}
+
+.footer-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-brand {
+  gap: 1.5rem;
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #dc2626;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  color: var(--navy);
+  max-width: 300px;
+  align-self: center;
+}
+
+.footer-location {
+  color: var(--navy);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.footer-col-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--red);
+}
+
+.footer-col a {
+  color: var(--navy);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-col a:hover {
+  color: #dc2626;
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  /* border-top: 1px solid #374151; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copyright {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-socials a {
+  color: #9ca3af;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.footer-socials a:hover {
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 2rem;
+    margin-top: 4rem;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+/* Focus states for accessibility */
+.footer-col a:focus,
+.footer-socials a:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
