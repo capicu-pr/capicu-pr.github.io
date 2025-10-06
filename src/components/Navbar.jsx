@@ -16,7 +16,7 @@ export default function Navbar({ onOpenProjectModal }) {
         </div>
         
         <div className="navbar-cta-buttons">
-          <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com" className="cta-button primary">
+          <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com,scruzromero@capicupuertorico.com" className="cta-button primary">
             Get Started
           </a>
           <button onClick={onOpenProjectModal} className="cta-button secondary">

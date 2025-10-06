@@ -59,7 +59,7 @@ Country: ${country}
 Project Description:
 ${projectDescription}`;
 
-    const mailtoLink = `mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com,scruzromero@capicupuertorico.com,scruzromero@capicupuertorico.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.location.href = mailtoLink;
     setShowProjectModal(false);
@@ -90,7 +90,7 @@ ${projectDescription}`;
           <p className="tagline">Capicú is an Applied AI/ML studio that co‑designs advanced analytical systems to work directly
           where biological and medical data is collected.</p>
             <div className="cta-buttons">
-              <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com" className="cta-button primary">
+              <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com,scruzromero@capicupuertorico.com" className="cta-button primary">
                 Get Started
               </a>
                      <button onClick={() => setShowProjectModal(true)} className="cta-button secondary">
@@ -335,7 +335,7 @@ ${projectDescription}`;
             <div className="cloudless-text">
               <h2 className="first-section-header">Get started with Capicú</h2>
               <div className="cta-buttons">
-                <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com" className="cta-button primary">
+                <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com,scruzromero@capicupuertorico.com" className="cta-button primary">
                   Get Started
                 </a>
                 <button onClick={() => setShowProjectModal(true)} className="cta-button secondary">

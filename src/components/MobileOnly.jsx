@@ -15,7 +15,7 @@ export default function MobileOnly() {
         </div>
         <div className="mobile-only-contact">
           <p>Need to reach us?</p>
-          <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com">
+          <a href="mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com,scruzromero@capicupuertorico.com">
             Contact Us
           </a>
         </div>
