@@ -378,11 +378,25 @@ body {
   text-align: left !important;
 }
 
+/* Exception for close button - ensure it's visible */
+.modal-overlay .project-modal .modal-close,
+.modal-overlay .project-modal .modal-header .modal-close {
+  background-color: transparent !important;
+  color: var(--navy) !important;
+}
+
 /* Override for input fields to stay white */
 .project-modal input,
 .project-modal select,
 .project-modal textarea {
   background-color: white !important;
+  color: var(--navy) !important;
+}
+
+/* Ensure placeholder text has good contrast */
+.project-modal input::placeholder,
+.project-modal textarea::placeholder {
+  color: rgba(15, 52, 85, 0.6) !important;
 }
 
 /* Custom dropdown styling */
@@ -456,7 +470,7 @@ body {
 }
 
 .form-group:nth-child(even) label {
-  color: var(--red);
+  color: var(--navy);
 }
 
 /* For form-row, we need to handle the grid layout differently */
@@ -465,7 +479,7 @@ body {
 }
 
 .form-row .form-group:nth-child(2) label {
-  color: var(--red);
+  color: var(--navy);
 }
 
 .form-group input,
@@ -476,6 +490,7 @@ body {
   border-radius: 8px;
   font-size: 1rem;
   background-color: white;
+  color: var(--navy);
   transition: border-color 0.2s ease;
 }
 
@@ -486,13 +501,19 @@ body {
   border-color: var(--red);
 }
 
+/* Ensure placeholder text has good contrast for form-group inputs */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(15, 52, 85, 0.6);
+}
+
 .phone-input-group {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .country-code-select {
-  flex: 0 0 120px;
+  flex: 0 0 85px;
 }
 
 .phone-input {
@@ -1079,12 +1100,30 @@ body {
   opacity: 0.7;
 }
 
-/* Advisory Committee Modal Close Button */
-.modal-overlay:not(.project-modal) .modal-close {
+/* Project Modal Close Button - ensure navy color with higher specificity */
+.modal-overlay .project-modal .modal-close,
+.modal-overlay .modal-content.project-modal .modal-close {
+  color: var(--navy) !important;
+  background-color: transparent !important;
+  font-weight: bold !important;
+  text-shadow: none !important;
+}
+
+.modal-overlay .project-modal .modal-close:hover,
+.modal-overlay .modal-content.project-modal .modal-close:hover {
+  color: var(--navy) !important;
+  background-color: transparent !important;
+  opacity: 0.7;
+  font-weight: bold !important;
+  text-shadow: none !important;
+}
+
+/* Advisory Committee Modal Close Button - only for modals that don't contain project-modal */
+.modal-overlay .modal-close {
   color: var(--beige) !important;
 }
 
-.modal-overlay:not(.project-modal) .modal-close:hover {
+.modal-overlay .modal-close:hover {
   color: var(--beige) !important;
   opacity: 0.7;
 }

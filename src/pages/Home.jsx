@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { initScrollAnimations } from "../utils/scrollAnimations";
 import { initTypewriter } from "../utils/typewriter";
 import VerticalsCarousel from "../components/VerticalsCarousel";
@@ -22,48 +23,13 @@ import "../styles/Home.css";
 
 export default function Home({ showProjectModal, setShowProjectModal }) {
   const [showAdvisoryModal, setShowAdvisoryModal] = useState(false);
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    countryCode: '+1',
-    country: '',
-    projectDescription: ''
-  });
+  const [state, handleSubmit] = useForm("mnnddqko"); // Using the same form ID as ContactForm
 
   useEffect(() => {
     initScrollAnimations();
     initTypewriter();
   }, []);
 
-  const handleFormChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const { firstName, lastName, email, phone, countryCode, country, projectDescription } = formData;
-    const fullPhone = `${countryCode} ${phone}`;
-    
-    const subject = `Project Discussion Request from ${firstName} ${lastName}`;
-    const body = `Name: ${firstName} ${lastName}
-Email: ${email}
-Phone: ${fullPhone}
-Country: ${country}
-
-Project Description:
-${projectDescription}`;
-
-    const mailtoLink = `mailto:info@capicupuertorico.com?cc=lluna@capicupuertorico.com,mmercado@capicupuertorico.com,scruzromero@capicupuertorico.com,scruzromero@capicupuertorico.com&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.location.href = mailtoLink;
-    setShowProjectModal(false);
-  };
 
          // Handle modal open/close to hide/show navbar
          useEffect(() => {
@@ -368,7 +334,7 @@ ${projectDescription}`;
               <button className="modal-close" onClick={() => setShowProjectModal(false)}>×</button>
             </div>
             
-            <form onSubmit={handleFormSubmit} className="project-form">
+            <form onSubmit={handleSubmit} className="project-form">
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">First name*</label>
@@ -376,10 +342,9 @@ ${projectDescription}`;
                     type="text"
                     id="firstName"
                     name="firstName"
-                    value={formData.firstName}
-                    onChange={handleFormChange}
                     required
                   />
+                  <ValidationError prefix="First Name" field="firstName" errors={state.errors} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="lastName">Last name*</label>
@@ -387,10 +352,9 @@ ${projectDescription}`;
                     type="text"
                     id="lastName"
                     name="lastName"
-                    value={formData.lastName}
-                    onChange={handleFormChange}
                     required
                   />
+                  <ValidationError prefix="Last Name" field="lastName" errors={state.errors} />
                 </div>
               </div>
 
@@ -400,10 +364,9 @@ ${projectDescription}`;
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleFormChange}
                   required
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
 
               <div className="form-row">
@@ -413,8 +376,6 @@ ${projectDescription}`;
                     <select
                       id="countryCode"
                       name="countryCode"
-                      value={formData.countryCode}
-                      onChange={handleFormChange}
                       className="country-code-select"
                     >
                       <option value="+1">🇺🇸 +1</option>
@@ -436,8 +397,6 @@ ${projectDescription}`;
                       type="tel"
                       id="phone"
                       name="phone"
-                      value={formData.phone}
-                      onChange={handleFormChange}
                       placeholder="Phone number"
                       className="phone-input"
                     />
@@ -448,8 +407,6 @@ ${projectDescription}`;
                   <select
                     id="country"
                     name="country"
-                    value={formData.country}
-                    onChange={handleFormChange}
                     required
                   >
                     <option value="">Select Country</option>
@@ -477,11 +434,11 @@ ${projectDescription}`;
                 <textarea
                   id="projectDescription"
                   name="projectDescription"
-                  value={formData.projectDescription}
-                  onChange={handleFormChange}
                   rows="4"
                   placeholder="Describe your project requirements, goals, and any specific needs..."
+                  required
                 />
+                <ValidationError prefix="Project Description" field="projectDescription" errors={state.errors} />
               </div>
 
               <div className="privacy-notice">
@@ -493,9 +450,27 @@ ${projectDescription}`;
                 </p>
               </div>
 
-              <button type="submit" className="submit-button">
-                Submit
-              </button>
+              <div className="form-actions">
+                <button 
+                  type="submit" 
+                  className="submit-button" 
+                  disabled={state.submitting}
+                >
+                  {state.submitting ? "Sending..." : "Send Message"}
+                </button>
+                {state.succeeded && (
+                  <div className="contact-success" style={{ 
+                    marginTop: '1rem', 
+                    padding: '1rem',
+                    backgroundColor: 'rgba(0, 128, 0, 0.1)',
+                    borderRadius: '8px',
+                    border: '1px solid green',
+                    color: 'green'
+                  }}>
+                    <strong>Thank you!</strong> Your message has been sent. We'll be in touch soon.
+                  </div>
+                )}
+              </div>
             </form>
           </div>
         </div>
