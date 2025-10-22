@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logoHorz from "../assets/logo-horz.png";
+import logoSolo from "../assets/logo-solo.png";
 import healthcareProductsLogo from "../assets/healthcare-products-logo.png";
 import "../styles/Navbar.css";
 
@@ -25,13 +26,46 @@ export default function Navbar({ onOpenProjectModal }) {
               Products
             </span>
             {showProductsDropdown && (
-              <div className="dropdown-menu">
-                <NavLink to="/products/enmedio" className="dropdown-item">
-                  <img src={healthcareProductsLogo} alt="Healthcare Products" className="product-logo" />
-                  <span className="product-text">
-                    <span className="product-text-navy">En</span><span className="product-text-red">Medio</span>
-                  </span>
-                </NavLink>
+              <div className="dropdown-menu three-pane-dropdown">
+                <div className="dropdown-pane">
+                  <div className="pane-header">TECHNOLOGY</div>
+                  <div className="pane-content">
+                    <NavLink to="" className="dropdown-item">
+                      <img src={logoSolo} alt="Technology Products" className="product-logo" />
+                      <span className="product-text">
+                      <span className="product-text-navy"></span>
+                      </span>
+                    </NavLink>
+                  </div>
+                </div>
+                
+                <div className="dropdown-divider"></div>
+                
+                <div className="dropdown-pane">
+                  <div className="pane-header">HEALTHCARE</div>
+                  <div className="pane-content">
+                    <NavLink to="/products/enmedio" className="dropdown-item">
+                      <img src={healthcareProductsLogo} alt="Healthcare Products" className="product-logo" />
+                      <span className="product-text">
+                        <span className="product-text-navy">En</span><span className="product-text-red">Medio</span>
+                      </span>
+                    </NavLink>
+                  </div>
+                </div>
+                
+                <div className="dropdown-divider"></div>
+                
+                <div className="dropdown-pane">
+                  <div className="pane-header">BIOLOGY</div>
+                  <div className="pane-content">
+                    {/* Biology products will go here */}
+                    <NavLink to="" className="dropdown-item">
+                      <img src={logoSolo} alt="Biology Products" className="product-logo" />
+                      <span className="product-text">
+                        <span className="product-text-navy"></span>
+                      </span>
+                    </NavLink>                  </div>
+                </div>
               </div>
             )}
           </div>
