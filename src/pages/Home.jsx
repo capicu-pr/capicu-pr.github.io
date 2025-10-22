@@ -19,6 +19,9 @@ import cseUprmLogo from "../assets/cse-uprm-logo.png";
 import engineeringUprmLogo from "../assets/engineering-uprm-logo.png";
 import cawtLogo from "../assets/cawt-logo.png";
 import prEpscorLogo from "../assets/pr-epscor-logo.png";
+import nvidiaInceptionLogo from "../assets/nvidia-inception-logo.png";
+import awsStartupsLogo from "../assets/aws-startups-logo.png";
+import theResidencyLogo from "../assets/the-residency-logo.png";
 import "../styles/Home.css";
 
 export default function Home({ showProjectModal, setShowProjectModal }) {
@@ -77,6 +80,9 @@ export default function Home({ showProjectModal, setShowProjectModal }) {
             <img src={pgLogo} alt="Perspectivas Globales" className="program-logo" />
             <img src={prstrtLogo} alt="PR Science Trust" className="program-logo" />
             <img src={colmena66Logo} alt="Colmena66" className="program-logo" />
+            <img src={nvidiaInceptionLogo} alt="NVIDIA Inception" className="program-logo" />
+            <img src={awsStartupsLogo} alt="AWS Startups" className="program-logo" />
+            <img src={theResidencyLogo} alt="The Residency" className="program-logo" />
           </div>
         </div>
       </section>

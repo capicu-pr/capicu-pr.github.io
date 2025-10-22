@@ -1485,7 +1485,7 @@ body {
 }
 
 .program-logo {
-  width: 10vw;
+  width: 8vw;
   height: auto;
   /* object-fit: contain; */
   filter: grayscale(100%);
