@@ -3597,7 +3597,7 @@ body {
 
 /* Navy Section with Background */
 .navy-section-with-bg {
-  background-image: url('./src/assets/living-room-background.png');
+  background-image: url('../assets/living-room-background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

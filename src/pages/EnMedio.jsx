@@ -7,6 +7,9 @@ import { Compass, Database, Brain, Layout, Server, Headphones, CheckCircle, XCir
 import logoSolo from "../assets/logo-solo.png";
 import enmedioLogoSolo from "../assets/enmedio-logo-solo.png";
 import healthcareProductsLogo from "../assets/healthcare-products-logo.png";
+import aarpReportFigure1 from "../assets/aarp-report-figure1.png";
+import aarpReportFigure3 from "../assets/aarp-report-figure3.png";
+import enmedioBanner from "../assets/enmedio-banner.png";
 import "../styles/Home.css";
 
 export default function EnMedio({ showProjectModal, setShowProjectModal }) {
@@ -77,13 +80,13 @@ export default function EnMedio({ showProjectModal, setShowProjectModal }) {
               
               <div className="cloudless-image caregiving-challenge-images">
                 <img 
-                  src="./src/assets/aarp-report-figure1.png" 
+                  src={aarpReportFigure1} 
                   alt="Prevalence of Caregiving by Age of Care Recipient, 2020 Compared to 2015"
                   loading="lazy"
                   className="caregiving-challenge-image"
                 />
                 <img 
-                  src="./src/assets/aarp-report-figure3.png" 
+                  src={aarpReportFigure3} 
                   alt="Estimates of Population Prevalence by Age of Recipient"
                   loading="lazy"
                   className="caregiving-challenge-image"
@@ -336,7 +339,7 @@ export default function EnMedio({ showProjectModal, setShowProjectModal }) {
             </div>
             <div className="cloudless-image">
               <img 
-                src="./src/assets/enmedio-banner.png" 
+                src={enmedioBanner} 
                 alt="EnMedio Platform Banner"
                 loading="lazy"
                 style={{width: '100%', height: 'auto', borderRadius: '8px'}}
