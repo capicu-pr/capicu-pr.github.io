@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import MobileOnly from "./components/MobileOnly";
 import "./App.css";
 import Products from "./pages/Products";
+import EnMedio from "./pages/EnMedio";
 import Privacy from "./pages/Privacy";
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home showProjectModal={showProjectModal} setShowProjectModal={setShowProjectModal} />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/enmedio" element={<EnMedio showProjectModal={showProjectModal} setShowProjectModal={setShowProjectModal} />} />
             <Route path="/privacy" element={<Privacy />} />
           </Routes>
         </main>

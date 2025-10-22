@@ -3346,3 +3346,335 @@ body {
     white-space: normal !important;
   }
 }
+
+/* EnMedio Page Specific Styles */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--ao-color-bg-navy);
+}
+
+.section-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* Caregiving Challenge Section */
+.caregiving-challenge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.caregiving-challenge-images {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.caregiving-challenge-image {
+  width: 80%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Why It Matters Grid */
+.why-it-matters-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.why-it-matters-column h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.why-it-matters-column ul {
+  text-align: left;
+  padding-left: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Core Features Grid */
+.core-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* EnMedio ASR Pilot Section */
+.enmedio-asr-section {
+  background-color: #f8f9fa;
+  border: 2px solid #e9ecef;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.pilot-badge {
+  display: inline-block;
+  background-color: var(--red);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* Trust & Compliance Section */
+.trust-compliance-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.trust-compliance-list ul {
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  list-style: none;
+  padding: 0;
+}
+
+.trust-compliance-list li {
+  margin-bottom: 0.75rem;
+}
+
+.trust-compliance-link {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+
+.trust-compliance-link a {
+  color: var(--ao-color-bg-navy);
+  text-decoration: underline;
+}
+
+/* Proof-in-Progress Section */
+.proof-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.proof-metric-card {
+  text-align: center;
+}
+
+.proof-metric-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--ao-color-bg-navy);
+  margin-bottom: 0.5rem;
+}
+
+.proof-metric-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Who It's For Section */
+.who-its-for-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.who-its-for-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--beige);
+}
+
+.who-its-for-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: var(--beige);
+}
+
+.who-its-for-cta {
+  background: var(--red);
+  color: var(--beige);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.who-its-for-cta:hover {
+  background: #dc2626;
+}
+
+/* FAQ Section */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 2rem;
+}
+
+.faq-question {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--ao-color-bg-navy);
+}
+
+.faq-answer {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Closing Band Section */
+.closing-band-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.closing-band-cta {
+  background: var(--red);
+  color: var(--beige);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.closing-band-cta:hover {
+  background: #dc2626;
+}
+
+.closing-band-cta.secondary {
+  background: transparent;
+  color: var(--red);
+  border: 2px solid var(--red);
+}
+
+.closing-band-cta.secondary:hover {
+  background: var(--red);
+  color: var(--beige);
+}
+
+.trust-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  opacity: 0.7;
+}
+
+/* Navy Section with Background */
+.navy-section-with-bg {
+  background-image: url('/src/assets/living-room-background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.navy-section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(15, 52, 85, 0.2);
+  z-index: 1;
+}
+
+.navy-section-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .caregiving-challenge-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .caregiving-challenge-image {
+    width: 100%;
+  }
+  
+  .why-it-matters-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .core-features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .proof-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .who-its-for-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .closing-band-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .trust-icons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-description {
+    font-size: 1.1rem;
+  }
+  
+  .proof-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .proof-metric-number {
+    font-size: 1.5rem;
+  }
+}

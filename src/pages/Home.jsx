@@ -74,14 +74,14 @@ export default function Home({ showProjectModal, setShowProjectModal }) {
         <div className="hero-partners">
           <strong>Supported by:</strong>
           <div className="program-logos-container">
-            <a href="https://www.xras.org/public/requests/242649-ACCESS-CIS250603" target="_blank" rel="noopener noreferrer">
-              <img src={nsfAccessLogo} alt="NSF ACCESS" className="program-logo" />
-            </a>
             <img src={pgLogo} alt="Perspectivas Globales" className="program-logo" />
             <img src={prstrtLogo} alt="PR Science Trust" className="program-logo" />
             <img src={colmena66Logo} alt="Colmena66" className="program-logo" />
-            <img src={nvidiaInceptionLogo} alt="NVIDIA Inception" className="program-logo" />
+            <a href="https://www.xras.org/public/requests/242649-ACCESS-CIS250603" target="_blank" rel="noopener noreferrer">
+              <img src={nsfAccessLogo} alt="NSF ACCESS" className="program-logo" />
+            </a>
             <img src={awsStartupsLogo} alt="AWS Startups" className="program-logo" />
+            <img src={nvidiaInceptionLogo} alt="NVIDIA Inception" className="program-logo" />
             <img src={theResidencyLogo} alt="The Residency" className="program-logo" />
           </div>
         </div>

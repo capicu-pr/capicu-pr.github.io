@@ -21,12 +21,12 @@ export default function Navbar({ onOpenProjectModal }) {
             onMouseEnter={() => setShowProductsDropdown(true)}
             onMouseLeave={() => setShowProductsDropdown(false)}
           >
-            <NavLink to="/products" className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+            <span className="nav-link">
               Products
-            </NavLink>
+            </span>
             {showProductsDropdown && (
               <div className="dropdown-menu">
-                <NavLink to="/products" className="dropdown-item">
+                <NavLink to="/products/enmedio" className="dropdown-item">
                   <img src={healthcareProductsLogo} alt="Healthcare Products" className="product-logo" />
                   <span className="product-text">
                     <span className="product-text-navy">En</span><span className="product-text-red">Medio</span>
