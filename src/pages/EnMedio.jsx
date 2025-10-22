@@ -77,13 +77,13 @@ export default function EnMedio({ showProjectModal, setShowProjectModal }) {
               
               <div className="cloudless-image caregiving-challenge-images">
                 <img 
-                  src="/src/assets/aarp-report-figure1.png" 
+                  src="./src/assets/aarp-report-figure1.png" 
                   alt="Prevalence of Caregiving by Age of Care Recipient, 2020 Compared to 2015"
                   loading="lazy"
                   className="caregiving-challenge-image"
                 />
                 <img 
-                  src="/src/assets/aarp-report-figure3.png" 
+                  src="./src/assets/aarp-report-figure3.png" 
                   alt="Estimates of Population Prevalence by Age of Recipient"
                   loading="lazy"
                   className="caregiving-challenge-image"
@@ -336,7 +336,7 @@ export default function EnMedio({ showProjectModal, setShowProjectModal }) {
             </div>
             <div className="cloudless-image">
               <img 
-                src="/src/assets/enmedio-banner.png" 
+                src="./src/assets/enmedio-banner.png" 
                 alt="EnMedio Platform Banner"
                 loading="lazy"
                 style={{width: '100%', height: 'auto', borderRadius: '8px'}}
